@@ -52,8 +52,12 @@ init = tf.global_variables_initializer()
 sess = tf.Session()
 sess.run(init)
 
-# Start iterating
+# Defining labels
 num_iterations = 10
+labels = ['input data']
+labels.extend(['iteration {}'.format(i+1) for i in range(num_iterations)])
+
+# Start iterating
 for step in range(num_iterations):
     # Run the session
     sess.run(train)
@@ -70,5 +74,5 @@ for step in range(num_iterations):
     # Set plotting parameters
     plt.xlabel('Dimension 0')
     plt.ylabel('Dimension 1')
-    plt.legend(labels=['iteration {}'.format(i+1) for i in range(num_iterations)])
+    plt.legend(labels=labels)
 plt.show()
